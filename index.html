@@ -20,6 +20,15 @@
             --text-dark: #1e293b;
         }
 
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        .font-prompt {
+            font-family: 'Prompt', sans-serif;
+        }
+
+        /* Standard A4 Page Setup */
         .a4-page {
             width: 210mm;
             min-height: 297mm;
@@ -28,6 +37,7 @@
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
         }
 
+        /* Editable highlight outline */
         [contenteditable="true"] {
             outline: none;
             transition: all 0.2s ease;
@@ -44,9 +54,10 @@
             box-shadow: 0 0 0 2px var(--navy-accent);
         }
 
+        /* Print Media Styling */
         @media print {
             @page {
-                size: A4;
+                size: A4 portrait;
                 margin: 0;
             }
             body {
@@ -74,10 +85,10 @@
         }
     </style>
 </head>
-<body class="bg-gray-200 font-sarabun text-gray-800 antialiased min-h-screen py-6">
+<body class="bg-slate-200 text-gray-800 antialiased min-h-screen py-6">
 
 
-    <!-- Main A4 Document Layout -->
+    <!-- Main A4 Document Matching Reference Layout -->
     <main id="cv-container" class="a4-page relative overflow-hidden flex flex-col justify-between">
         
         <div>
@@ -87,18 +98,13 @@
                 <div class="col-span-4 bg-[#132b45] p-6 flex items-center justify-center">
                     <div class="relative w-40 h-40 rounded-full border-4 border-white shadow-lg overflow-hidden group bg-slate-700 cursor-pointer" onclick="document.getElementById('img-upload').click()">
                         
-                        <!-- Profile Image Element -->
-                        <img id="profile-img" src="031.jpeg" alt="Phimlapas Pradit" class="w-full h-full object-cover object-top" onerror="showPlaceholder()">
+                        <!-- Profile Image -->
+                        <img id="profile-img" src="031.jpg" alt="Phimlapas Pradit" class="w-full h-full object-cover object-[center_20%]" onerror="checkSavedImage(this)">
                         
-                        <!-- Fallback Placeholder -->
-                        <div id="profile-placeholder" class="hidden absolute inset-0 bg-slate-600 text-white flex-col items-center justify-center text-center p-2">
-                            <i class="fa-solid fa-user-plus text-3xl mb-1"></i>
-                            <span class="text-[11px]">คลิกเพื่อใส่รูป หรือลากรูปมาวาง</span>
-                        </div>
-
+                        <!-- Clean Minimal Overlay on Hover -->
                         <label for="img-upload" class="no-print absolute inset-0 bg-black/50 text-white flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
-                            <i class="fa-solid fa-camera text-2xl mb-1"></i>
-                            <span class="text-xs font-prompt">เปลี่ยนรูปถ่าย</span>
+                            <i class="fa-solid fa-camera text-xl mb-1"></i>
+                            <span class="text-xs font-prompt font-medium">เปลี่ยนรูป</span>
                         </label>
                         <input type="file" id="img-upload" accept="image/*" class="hidden" onchange="loadProfileImage(event)">
                     </div>
@@ -109,13 +115,16 @@
                     <h1 contenteditable="true" class="font-prompt text-3xl font-bold tracking-wider text-[#132b45] uppercase mb-1">
                         PHIMLAPAS
                     </h1>
-                    <h1 contenteditable="true" class="font-prompt text-3xl font-bold tracking-wider text-[#132b45] uppercase mb-4">
+                    <h1 contenteditable="true" class="font-prompt text-3xl font-bold tracking-wider text-[#132b45] uppercase mb-3">
                         PRADIT
                     </h1>
+                    <h2 contenteditable="true" class="text-sm font-bold text-gray-600 mb-3">
+                        พิมพ์ลภัส ประดิษฐ์ (ซุง)
+                    </h2>
                     
                     <div class="flex gap-3 items-start border-l-4 border-[#132b45] pl-3">
                         <p contenteditable="true" class="text-xs text-gray-600 leading-relaxed text-justify font-sarabun">
-                            นักศึกษาปวช.2 สาขาเทคโนโลยีสารสนเทศ วิทยาลัยเทคนิคกระบี่ มีความสนใจและความตั้งใจจริงในการเรียนรู้ระบบสารสนเทศ การพัฒนาเว็บไซต์เบื้องต้น และงานซ่อมบำรุงคอมพิวเตอร์ มีความรับผิดชอบ ตรงต่อเวลา พร้อมเปิดรับการเรียนรู้และฝึกฝนทักษะเพื่อการทำงานจริง
+                            นักศึกษาประกาศนียบัตรวิชาชีพ (ปวช.2) สาขาเทคโนโลยีสารสนเทศ วิทยาลัยเทคนิคกระบี่ มีความสนใจและความตั้งใจจริงในการเรียนรู้ระบบสารสนเทศ การพัฒนาเว็บไซต์เบื้องต้น และงานซ่อมบำรุงคอมพิวเตอร์ มีความรับผิดชอบ ตรงต่อเวลา พร้อมเปิดรับการเรียนรู้และฝึกฝนทักษะเพื่อการทำงานจริง
                         </p>
                     </div>
                 </div>
@@ -158,6 +167,10 @@
                                 <span contenteditable="true" class="font-medium">หญิง</span>
                             </li>
                             <li class="flex justify-between">
+                                <span class="text-gray-400">สัญชาติ :</span>
+                                <span contenteditable="true" class="font-medium">ไทย</span>
+                            </li>
+                            <li class="flex justify-between">
                                 <span class="text-gray-400">อายุ :</span>
                                 <span contenteditable="true" class="font-medium">17 ปี</span>
                             </li>
@@ -179,7 +192,7 @@
                         </h2>
                         <div class="space-y-3 text-xs">
                             <div>
-                                <div contenteditable="true" class="font-semibold text-white">วิทยาลัยเทคนิคกระบี่</div>
+                                <div contenteditable="true" class="font-semibold text-white text-sm">วิทยาลัยเทคนิคกระบี่</div>
                                 <div contenteditable="true" class="text-blue-200 text-[11px] mt-0.5">ประกาศนียบัตรวิชาชีพ (ปวช.2)</div>
                                 <div contenteditable="true" class="text-gray-300 text-[11px]">สาขาเทคโนโลยีสารสนเทศ</div>
                                 <div contenteditable="true" class="text-gray-400 text-[10px] mt-1">ปีการศึกษา 2567 - ปัจจุบัน</div>
@@ -362,9 +375,22 @@
     </main>
 
     <script>
-        function showPlaceholder() {
-            document.getElementById('profile-img').style.display = 'none';
-            document.getElementById('profile-placeholder').style.display = 'flex';
+        // Auto load saved image from localStorage if available
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedImg = localStorage.getItem('profile_img_sung');
+            if (savedImg) {
+                document.getElementById('profile-img').src = savedImg;
+            }
+        });
+
+        function checkSavedImage(imgElement) {
+            const savedImg = localStorage.getItem('profile_img_sung');
+            if (savedImg) {
+                imgElement.src = savedImg;
+            } else {
+                // Default fallback SVG if local file 031.jpg is missing
+                imgElement.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' width='100%' height='100%'><defs><linearGradient id='bg' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23132b45'/><stop offset='100%' stop-color='%231e3a5f'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23bg)'/><circle cx='200' cy='140' r='55' fill='%23fbcfe8'/><path d='M140,110 Q200,60 260,110 Q240,70 200,70 Q160,70 140,110 Z' fill='%231e1b4b'/><path d='M120,400 L150,210 L250,210 L280,400 Z' fill='%231e3a5f'/><text x='200' y='330' font-family='Sarabun, sans-serif' font-size='16' font-weight='bold' fill='%23fbbf24' text-anchor='middle'>KRABI TECHNICAL COLLEGE</text></svg>";
+            }
         }
 
         function loadProfileImage(event) {
@@ -373,10 +399,9 @@
                 const reader = new FileReader();
                 reader.onload = function() {
                     const output = document.getElementById('profile-img');
-                    const placeholder = document.getElementById('profile-placeholder');
                     output.src = reader.result;
-                    output.style.display = 'block';
-                    placeholder.style.display = 'none';
+                    // Save to browser memory so it stays forever
+                    localStorage.setItem('profile_img_sung', reader.result);
                 };
                 reader.readAsDataURL(file);
             }
