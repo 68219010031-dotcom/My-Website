@@ -20,7 +20,6 @@
             --text-dark: #1e293b;
         }
 
-        /* Standard A4 Page Setup */
         .a4-page {
             width: 210mm;
             min-height: 297mm;
@@ -29,7 +28,6 @@
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
         }
 
-        /* Editable highlight outline */
         [contenteditable="true"] {
             outline: none;
             transition: all 0.2s ease;
@@ -46,12 +44,10 @@
             box-shadow: 0 0 0 2px var(--navy-accent);
         }
 
-        /* กลับด้านรูปภาพให้ตัวหนังสือที่ปักบนเสื้ออ่านได้ถูกต้อง */
         .flip-image {
             transform: scaleX(-1);
         }
 
-        /* Print Media Styling */
         @media print {
             @page {
                 size: A4;
@@ -84,20 +80,16 @@
 </head>
 <body class="bg-gray-200 font-sarabun text-gray-800 antialiased min-h-screen py-6">
 
-    
 
     <!-- Main A4 Document Layout -->
     <main id="cv-container" class="a4-page relative overflow-hidden flex flex-col justify-between">
-        
         <div>
             <!-- Header Grid Area -->
             <div class="grid grid-cols-12 w-full">
-                <!-- Top-Left Dark Navy Box for Profile Photo -->
                 <div class="col-span-4 bg-[#132b45] p-6 flex items-center justify-center">
                     <div class="relative w-40 h-40 rounded-full border-4 border-white shadow-lg overflow-hidden group bg-slate-700 cursor-pointer" onclick="document.getElementById('img-upload').click()">
-                        
-                        <!-- Profile Image -->
-                        <img id="profile-img" src="031.jpg" alt="Phimlapas Pradit" class="w-full h-full object-cover object-top flip-image">
+                        <!-- ดึงรูป 031_2.jpg จากเซิร์ฟเวอร์ GitHub -->
+                        <img id="profile-img" src="./031.jpg" alt="Phimlapas Pradit" class="w-full h-full object-cover object-top flip-image">
 
                         <label for="img-upload" class="no-print absolute inset-0 bg-black/50 text-white flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
                             <i class="fa-solid fa-camera text-xl mb-1"></i>
@@ -107,7 +99,6 @@
                     </div>
                 </div>
 
-                <!-- Top-Right Name & Objective Area -->
                 <div class="col-span-8 p-8 flex flex-col justify-center bg-white">
                     <h1 contenteditable="true" class="font-prompt text-3xl font-bold tracking-wider text-[#132b45] uppercase mb-1">
                         PHIMLAPAS
@@ -124,7 +115,7 @@
                 </div>
             </div>
 
-            <!-- Full-Width Horizontal Contact Banner -->
+            <!-- Contact Banner -->
             <div class="bg-[#132b45] text-white px-8 py-2.5 flex justify-between items-center text-xs font-prompt">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-phone text-blue-300"></i>
@@ -140,13 +131,10 @@
                 </div>
             </div>
 
-            <!-- Main Content Area: Two Column Layout -->
+            <!-- Content Area -->
             <div class="grid grid-cols-12 w-full">
-                
-                <!-- Left Column (Dark Navy Sidebar) -->
+                <!-- Left Sidebar -->
                 <aside class="col-span-4 bg-[#132b45] text-white p-6 space-y-6 min-h-[calc(297mm-230px)] rounded-br-3xl">
-                    
-                    <!-- Personal Data -->
                     <div>
                         <h2 class="font-prompt font-bold text-sm tracking-widest text-white uppercase border-b border-blue-400/40 pb-1.5 mb-3">
                             PERSONAL DATA
@@ -175,7 +163,6 @@
                         </ul>
                     </div>
 
-                    <!-- Education -->
                     <div>
                         <h2 class="font-prompt font-bold text-sm tracking-widest text-white uppercase border-b border-blue-400/40 pb-1.5 mb-3">
                             EDUCATION
@@ -190,7 +177,6 @@
                         </div>
                     </div>
 
-                    <!-- Languages -->
                     <div>
                         <h2 class="font-prompt font-bold text-sm tracking-widest text-white uppercase border-b border-blue-400/40 pb-1.5 mb-3">
                             LANGUAGE
@@ -217,7 +203,6 @@
                         </div>
                     </div>
 
-                    <!-- Reference -->
                     <div>
                         <h2 class="font-prompt font-bold text-sm tracking-widest text-white uppercase border-b border-blue-400/40 pb-1.5 mb-3">
                             REFERENCE
@@ -228,13 +213,10 @@
                             <div contenteditable="true" class="text-[11px] text-gray-400">โทร: 075-611-142</div>
                         </div>
                     </div>
-
                 </aside>
 
-                <!-- Right Column (Main Content) -->
+                <!-- Right Main Area -->
                 <main class="col-span-8 p-8 space-y-6 bg-white">
-                    
-                    <!-- Experience & Activities -->
                     <div>
                         <div class="flex items-center gap-2 border-b-2 border-[#132b45] pb-1 mb-3">
                             <span class="w-2 h-4 bg-[#132b45]"></span>
@@ -242,7 +224,6 @@
                                 EXPERIENCE & ACTIVITIES
                             </h2>
                         </div>
-                        
                         <div class="space-y-4">
                             <div>
                                 <div class="flex justify-between items-baseline">
@@ -257,7 +238,6 @@
                                     <li contenteditable="true">ศึกษาการสร้างส่วนติดต่อผู้ใช้ (UI) แบบ Responsive รองรับการแสดงผลบนสมาร์ตโฟน</li>
                                 </ul>
                             </div>
-
                             <div>
                                 <div class="flex justify-between items-baseline">
                                     <h3 contenteditable="true" class="font-prompt font-bold text-xs text-gray-900">
@@ -274,7 +254,6 @@
                         </div>
                     </div>
 
-                    <!-- Certificate -->
                     <div>
                         <div class="flex items-center gap-2 border-b-2 border-[#132b45] pb-1 mb-3">
                             <span class="w-2 h-4 bg-[#132b45]"></span>
@@ -288,7 +267,6 @@
                         </ul>
                     </div>
 
-                    <!-- Skills -->
                     <div>
                         <div class="flex items-center gap-2 border-b-2 border-[#132b45] pb-1 mb-4">
                             <span class="w-2 h-4 bg-[#132b45]"></span>
@@ -296,7 +274,6 @@
                                 SKILLS
                             </h2>
                         </div>
-                        
                         <div class="space-y-3">
                             <div class="flex items-center justify-between text-xs">
                                 <span contenteditable="true" class="font-medium text-gray-800 w-2/5">HTML / CSS Web Basic</span>
@@ -307,7 +284,6 @@
                                     <span contenteditable="true" class="text-[11px] font-semibold text-gray-500 w-8 text-right">80%</span>
                                 </div>
                             </div>
-
                             <div class="flex items-center justify-between text-xs">
                                 <span contenteditable="true" class="font-medium text-gray-800 w-2/5">Computer Hardware</span>
                                 <div class="w-3/5 flex items-center gap-3">
@@ -317,7 +293,6 @@
                                     <span contenteditable="true" class="text-[11px] font-semibold text-gray-500 w-8 text-right">75%</span>
                                 </div>
                             </div>
-
                             <div class="flex items-center justify-between text-xs">
                                 <span contenteditable="true" class="font-medium text-gray-800 w-2/5">Basic Network & LAN</span>
                                 <div class="w-3/5 flex items-center gap-3">
@@ -327,7 +302,6 @@
                                     <span contenteditable="true" class="text-[11px] font-semibold text-gray-500 w-8 text-right">70%</span>
                                 </div>
                             </div>
-
                             <div class="flex items-center justify-between text-xs">
                                 <span contenteditable="true" class="font-medium text-gray-800 w-2/5">Microsoft Office / Canva</span>
                                 <div class="w-3/5 flex items-center gap-3">
@@ -337,7 +311,6 @@
                                     <span contenteditable="true" class="text-[11px] font-semibold text-gray-500 w-8 text-right">85%</span>
                                 </div>
                             </div>
-
                             <div class="flex items-center justify-between text-xs">
                                 <span contenteditable="true" class="font-medium text-gray-800 w-2/5">Troubleshooting</span>
                                 <div class="w-3/5 flex items-center gap-3">
@@ -349,19 +322,17 @@
                             </div>
                         </div>
                     </div>
-
                 </main>
             </div>
         </div>
 
-        <!-- Footer Signature -->
+        <!-- Footer -->
         <div class="px-8 pb-6 flex justify-end">
             <div class="text-center w-48">
                 <div contenteditable="true" class="font-serif italic text-base text-[#132b45] mb-0.5">Phimlapas Pradit</div>
                 <div contenteditable="true" class="text-[10px] text-gray-500 border-t border-gray-300 pt-1 font-prompt">( นางสาวพิมพ์ลภัส ประดิษฐ์ )</div>
             </div>
         </div>
-
     </main>
 
     <script>
@@ -372,25 +343,11 @@
                 reader.onload = function() {
                     const output = document.getElementById('profile-img');
                     output.src = reader.result;
-                    // ไม่ต้องสลับด้านเมื่อผู้ใช้เลือกไฟล์ใหม่เอง
                     output.classList.remove('flip-image');
-                    try {
-                        localStorage.setItem('cv_saved_profile_pic', reader.result);
-                    } catch(e) {}
                 };
                 reader.readAsDataURL(file);
             }
         }
-
-        // โหลดรูปภาพจาก localStorage หากเคยมีการบันทึกไว้
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedPic = localStorage.getItem('cv_saved_profile_pic');
-            if (savedPic) {
-                const img = document.getElementById('profile-img');
-                img.src = savedPic;
-                img.classList.remove('flip-image');
-            }
-        });
     </script>
 </body>
 </html>
