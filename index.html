@@ -1,11 +1,405 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Curriculum Vitae - Phimlapas Pradit</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --navy-dark: #132b45;
+            --navy-light: #1e3a5f;
+            --navy-accent: #2563eb;
+            --text-dark: #1e293b;
+        }
+
+        .a4-page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        [contenteditable="true"] {
+            outline: none;
+            transition: all 0.2s ease;
+            border-radius: 2px;
+        }
+        
+        body:not(.print-mode) [contenteditable="true"]:hover {
+            background-color: rgba(37, 99, 235, 0.08);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
+        }
+
+        body:not(.print-mode) [contenteditable="true"]:focus {
+            background-color: rgba(37, 99, 235, 0.12);
+            box-shadow: 0 0 0 2px var(--navy-accent);
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            body {
+                background: white !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .a4-page {
+                box-shadow: none !important;
+                width: 210mm !important;
+                height: 297mm !important;
+                margin: 0 !important;
+                page-break-after: avoid;
+                page-break-before: avoid;
+            }
+            [contenteditable="true"]:hover, [contenteditable="true"]:focus {
+                background-color: transparent !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
 </head>
-<body>
-    <h1>Hello จ้าม้ะหญิง</h1>
+<body class="bg-gray-200 font-sarabun text-gray-800 antialiased min-h-screen py-6">
+
+
+    <!-- Main A4 Document Layout -->
+    <main id="cv-container" class="a4-page relative overflow-hidden flex flex-col justify-between">
+        
+        <div>
+            <!-- Header Grid Area -->
+            <div class="grid grid-cols-12 w-full">
+                <!-- Top-Left Dark Navy Box for Profile Photo -->
+                <div class="col-span-4 bg-[#132b45] p-6 flex items-center justify-center">
+                    <div class="relative w-40 h-40 rounded-full border-4 border-white shadow-lg overflow-hidden group bg-slate-700 cursor-pointer" onclick="document.getElementById('img-upload').click()">
+                        
+                        <!-- Profile Image Element -->
+                        <img id="profile-img" src="031.jpeg" alt="Phimlapas Pradit" class="w-full h-full object-cover object-top" onerror="showPlaceholder()">
+                        
+                        <!-- Fallback Placeholder -->
+                        <div id="profile-placeholder" class="hidden absolute inset-0 bg-slate-600 text-white flex-col items-center justify-center text-center p-2">
+                            <i class="fa-solid fa-user-plus text-3xl mb-1"></i>
+                            <span class="text-[11px]">คลิกเพื่อใส่รูป หรือลากรูปมาวาง</span>
+                        </div>
+
+                        <label for="img-upload" class="no-print absolute inset-0 bg-black/50 text-white flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+                            <i class="fa-solid fa-camera text-2xl mb-1"></i>
+                            <span class="text-xs font-prompt">เปลี่ยนรูปถ่าย</span>
+                        </label>
+                        <input type="file" id="img-upload" accept="image/*" class="hidden" onchange="loadProfileImage(event)">
+                    </div>
+                </div>
+
+                <!-- Top-Right Name & Objective Area -->
+                <div class="col-span-8 p-8 flex flex-col justify-center bg-white">
+                    <h1 contenteditable="true" class="font-prompt text-3xl font-bold tracking-wider text-[#132b45] uppercase mb-1">
+                        PHIMLAPAS
+                    </h1>
+                    <h1 contenteditable="true" class="font-prompt text-3xl font-bold tracking-wider text-[#132b45] uppercase mb-4">
+                        PRADIT
+                    </h1>
+                    
+                    <div class="flex gap-3 items-start border-l-4 border-[#132b45] pl-3">
+                        <p contenteditable="true" class="text-xs text-gray-600 leading-relaxed text-justify font-sarabun">
+                            นักศึกษาปวช.2 สาขาเทคโนโลยีสารสนเทศ วิทยาลัยเทคนิคกระบี่ มีความสนใจและความตั้งใจจริงในการเรียนรู้ระบบสารสนเทศ การพัฒนาเว็บไซต์เบื้องต้น และงานซ่อมบำรุงคอมพิวเตอร์ มีความรับผิดชอบ ตรงต่อเวลา พร้อมเปิดรับการเรียนรู้และฝึกฝนทักษะเพื่อการทำงานจริง
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full-Width Horizontal Contact Banner -->
+            <div class="bg-[#132b45] text-white px-8 py-2.5 flex justify-between items-center text-xs font-prompt">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-blue-300"></i>
+                    <span contenteditable="true">063-753-3102</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-envelope text-blue-300"></i>
+                    <span contenteditable="true">68219010031@kbtc.ac.th</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot text-blue-300"></i>
+                    <span contenteditable="true">ต.ปากน้ำ อ.เมือง จ.กระบี่</span>
+                </div>
+            </div>
+
+            <!-- Main Content Area: Two Column Layout -->
+            <div class="grid grid-cols-12 w-full">
+                
+                <!-- Left Column (Dark Navy Sidebar) -->
+                <aside class="col-span-4 bg-[#132b45] text-white p-6 space-y-6 min-h-[calc(297mm-230px)] rounded-br-3xl">
+                    
+                    <!-- Personal Data -->
+                    <div>
+                        <h2 class="font-prompt font-bold text-sm tracking-widest text-white uppercase border-b border-blue-400/40 pb-1.5 mb-3">
+                            PERSONAL DATA
+                        </h2>
+                        <ul class="space-y-2 text-xs text-gray-200">
+                            <li class="flex justify-between">
+                                <span class="text-gray-400">ชื่อเล่น :</span>
+                                <span contenteditable="true" class="font-medium">ซุง (Sung)</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-400">เพศ :</span>
+                                <span contenteditable="true" class="font-medium">หญิง</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-400">อายุ :</span>
+                                <span contenteditable="true" class="font-medium">17 ปี</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-400">วันเกิด :</span>
+                                <span contenteditable="true" class="font-medium">26 ธ.ค. 2552</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-400">สถานะ :</span>
+                                <span contenteditable="true" class="font-medium">นักศึกษา</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Education -->
+                    <div>
+                        <h2 class="font-prompt font-bold text-sm tracking-widest text-white uppercase border-b border-blue-400/40 pb-1.5 mb-3">
+                            EDUCATION
+                        </h2>
+                        <div class="space-y-3 text-xs">
+                            <div>
+                                <div contenteditable="true" class="font-semibold text-white">วิทยาลัยเทคนิคกระบี่</div>
+                                <div contenteditable="true" class="text-blue-200 text-[11px] mt-0.5">ประกาศนียบัตรวิชาชีพ (ปวช.2)</div>
+                                <div contenteditable="true" class="text-gray-300 text-[11px]">สาขาเทคโนโลยีสารสนเทศ</div>
+                                <div contenteditable="true" class="text-gray-400 text-[10px] mt-1">ปีการศึกษา 2567 - ปัจจุบัน</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Languages -->
+                    <div>
+                        <h2 class="font-prompt font-bold text-sm tracking-widest text-white uppercase border-b border-blue-400/40 pb-1.5 mb-3">
+                            LANGUAGE
+                        </h2>
+                        <div class="space-y-3 text-xs">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span contenteditable="true" class="font-medium text-gray-200">Thai (ภาษาไทย)</span>
+                                    <span contenteditable="true" class="text-gray-400 text-[10px]">100%</span>
+                                </div>
+                                <div class="w-full bg-slate-700/80 rounded-full h-1.5 overflow-hidden">
+                                    <div class="bg-blue-400 h-full rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span contenteditable="true" class="font-medium text-gray-200">English (อังกฤษ)</span>
+                                    <span contenteditable="true" class="text-gray-400 text-[10px]">65%</span>
+                                </div>
+                                <div class="w-full bg-slate-700/80 rounded-full h-1.5 overflow-hidden">
+                                    <div class="bg-blue-400 h-full rounded-full" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reference -->
+                    <div>
+                        <h2 class="font-prompt font-bold text-sm tracking-widest text-white uppercase border-b border-blue-400/40 pb-1.5 mb-3">
+                            REFERENCE
+                        </h2>
+                        <div class="text-xs space-y-1 text-gray-300">
+                            <div contenteditable="true" class="font-medium text-white">แผนกวิชาเทคโนโลยีสารสนเทศ</div>
+                            <div contenteditable="true" class="text-[11px] text-gray-300">วิทยาลัยเทคนิคกระบี่</div>
+                            <div contenteditable="true" class="text-[11px] text-gray-400">โทร: 075-611-142</div>
+                        </div>
+                    </div>
+
+                </aside>
+
+                <!-- Right Column (Main Content) -->
+                <main class="col-span-8 p-8 space-y-6 bg-white">
+                    
+                    <!-- Experience & Activities -->
+                    <div>
+                        <div class="flex items-center gap-2 border-b-2 border-[#132b45] pb-1 mb-3">
+                            <span class="w-2 h-4 bg-[#132b45]"></span>
+                            <h2 class="font-prompt font-bold text-base tracking-wider text-[#132b45] uppercase">
+                                EXPERIENCE & ACTIVITIES
+                            </h2>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between items-baseline">
+                                    <h3 contenteditable="true" class="font-prompt font-bold text-xs text-gray-900">
+                                        การพัฒนาเว็บไซต์เบื้องต้น (Web Development Project)
+                                    </h3>
+                                    <span contenteditable="true" class="text-[11px] font-semibold text-gray-500">2026</span>
+                                </div>
+                                <div contenteditable="true" class="text-xs font-medium text-[#132b45] mb-1">วิทยาลัยเทคนิคกระบี่</div>
+                                <ul class="list-disc list-inside text-xs text-gray-600 space-y-1 pl-1">
+                                    <li contenteditable="true">ฝึกออกแบบโครงสร้างเว็บไซต์ภาษา HTML และจัดตกแต่งการแสดงผลด้วย CSS</li>
+                                    <li contenteditable="true">ศึกษาการสร้างส่วนติดต่อผู้ใช้ (UI) แบบ Responsive รองรับการแสดงผลบนสมาร์ตโฟน</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between items-baseline">
+                                    <h3 contenteditable="true" class="font-prompt font-bold text-xs text-gray-900">
+                                        งานปฏิบัติการซ่อมบำรุงและเครือข่ายคอมพิวเตอร์
+                                    </h3>
+                                    <span contenteditable="true" class="text-[11px] font-semibold text-gray-500">2025</span>
+                                </div>
+                                <div contenteditable="true" class="text-xs font-medium text-[#132b45] mb-1">สาขาวิชาเทคโนโลยีสารสนเทศ</div>
+                                <ul class="list-disc list-inside text-xs text-gray-600 space-y-1 pl-1">
+                                    <li contenteditable="true">ฝึกปฏิบัติการประกอบอุปกรณ์คอมพิวเตอร์ฮาร์ดแวร์และการติดตั้งระบบปฏิบัติการ Windows</li>
+                                    <li contenteditable="true">เข้าหัวสายสัญญาณแลน (LAN) และทดสอบการเชื่อมต่อระบบเครือข่ายภายในห้องปฏิบัติการ</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate -->
+                    <div>
+                        <div class="flex items-center gap-2 border-b-2 border-[#132b45] pb-1 mb-3">
+                            <span class="w-2 h-4 bg-[#132b45]"></span>
+                            <h2 class="font-prompt font-bold text-base tracking-wider text-[#132b45] uppercase">
+                                CERTIFICATE
+                            </h2>
+                        </div>
+                        <ul class="list-disc list-inside text-xs text-gray-600 space-y-1.5 pl-1">
+                            <li contenteditable="true">วุฒิบัตรเข้าร่วมการอบรมเชิงปฏิบัติการด้านเทคโนโลยีสารสนเทศ วิทยาลัยเทคนิคกระบี่ (2025)</li>
+                            <li contenteditable="true">ผ่านการทดสอบทักษะดิจิทัลพื้นฐานสำหรับนักศึกษาสาขาเทคโนโลยีสารสนเทศ</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skills -->
+                    <div>
+                        <div class="flex items-center gap-2 border-b-2 border-[#132b45] pb-1 mb-4">
+                            <span class="w-2 h-4 bg-[#132b45]"></span>
+                            <h2 class="font-prompt font-bold text-base tracking-wider text-[#132b45] uppercase">
+                                SKILLS
+                            </h2>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-xs">
+                                <span contenteditable="true" class="font-medium text-gray-800 w-2/5">HTML / CSS Web Basic</span>
+                                <div class="w-3/5 flex items-center gap-3">
+                                    <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                                        <div class="bg-[#132b45] h-full rounded-full" style="width: 80%"></div>
+                                    </div>
+                                    <span contenteditable="true" class="text-[11px] font-semibold text-gray-500 w-8 text-right">80%</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-xs">
+                                <span contenteditable="true" class="font-medium text-gray-800 w-2/5">Computer Hardware</span>
+                                <div class="w-3/5 flex items-center gap-3">
+                                    <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                                        <div class="bg-[#132b45] h-full rounded-full" style="width: 75%"></div>
+                                    </div>
+                                    <span contenteditable="true" class="text-[11px] font-semibold text-gray-500 w-8 text-right">75%</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-xs">
+                                <span contenteditable="true" class="font-medium text-gray-800 w-2/5">Basic Network & LAN</span>
+                                <div class="w-3/5 flex items-center gap-3">
+                                    <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                                        <div class="bg-[#132b45] h-full rounded-full" style="width: 70%"></div>
+                                    </div>
+                                    <span contenteditable="true" class="text-[11px] font-semibold text-gray-500 w-8 text-right">70%</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-xs">
+                                <span contenteditable="true" class="font-medium text-gray-800 w-2/5">Microsoft Office / Canva</span>
+                                <div class="w-3/5 flex items-center gap-3">
+                                    <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                                        <div class="bg-[#132b45] h-full rounded-full" style="width: 85%"></div>
+                                    </div>
+                                    <span contenteditable="true" class="text-[11px] font-semibold text-gray-500 w-8 text-right">85%</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-xs">
+                                <span contenteditable="true" class="font-medium text-gray-800 w-2/5">Troubleshooting</span>
+                                <div class="w-3/5 flex items-center gap-3">
+                                    <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                                        <div class="bg-[#132b45] h-full rounded-full" style="width: 75%"></div>
+                                    </div>
+                                    <span contenteditable="true" class="text-[11px] font-semibold text-gray-500 w-8 text-right">75%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </main>
+            </div>
+        </div>
+
+        <!-- Footer Signature -->
+        <div class="px-8 pb-6 flex justify-end">
+            <div class="text-center w-48">
+                <div contenteditable="true" class="font-serif italic text-base text-[#132b45] mb-0.5">Phimlapas Pradit</div>
+                <div contenteditable="true" class="text-[10px] text-gray-500 border-t border-gray-300 pt-1 font-prompt">( นางสาวพิมพ์ลภัส ประดิษฐ์ )</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function showPlaceholder() {
+            document.getElementById('profile-img').style.display = 'none';
+            document.getElementById('profile-placeholder').style.display = 'flex';
+        }
+
+        function loadProfileImage(event) {
+            const file = event.target.files[0];
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function() {
+                    const output = document.getElementById('profile-img');
+                    const placeholder = document.getElementById('profile-placeholder');
+                    output.src = reader.result;
+                    output.style.display = 'block';
+                    placeholder.style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Support Drag and Drop
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                body.addEventListener(eventName, (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }, false);
+            });
+
+            body.addEventListener('drop', (e) => {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                if (files.length > 0 && files[0].type.startsWith('image/')) {
+                    loadProfileImage({ target: { files: files } });
+                }
+            }, false);
+        });
+    </script>
 </body>
 </html>
